@@ -17,14 +17,28 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 		"test",
 	}
 
-	tpl, _ := os.ReadFile("web/template/definition.html")
-	t, _ := template.New("definition").Parse(string(tpl))
+	t, _ := template.ParseFiles("web/template/definition.html")
+	t.Execute(w, data)
+}
+
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+
+	data := struct {
+		DailyPhrase     string
+		DailyDefinition string
+	}{
+		"Daily test",
+		"Daily test definition",
+	}
+
+	t, _ := template.ParseFiles("web/template/index.html")
 	t.Execute(w, data)
 }
 
 func main() {
-	root := http.FileServer(http.Dir("web/static"))
-	http.Handle("/", root)
+	http.Handle("/style.css", http.FileServer(http.Dir("web/static")))
+
+	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/define", defineHandler)
 	http.ListenAndServe(":"+os.Args[1], nil)
 }
