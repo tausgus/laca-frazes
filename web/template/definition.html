@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/93ac5bcc4f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,13 +11,19 @@
     <title>Lāča frāzes</title>
 </head>
 <body>
-        <button onclick="window.location.href='/';" id="return">
-            <i class="fa-solid fa-arrow-left-long"></i>
-        </button>
+    <div class="header">
+        <h1>Kaspara Lāča frāžu vārdnīca</h1>
+        <i>Dienas frāzes un meklēšana</i>
+    </div>
+    <div class="flex">
         <div class="definition">
             <h2>Definīcija</h2>
             <blockquote>„{{.Query}}“</blockquote>
             {{.Definition}}
         </div>
+    </div>
+    <button onclick="window.location.href='/';" id="return">
+        <i class="fa-solid fa-arrow-left-long"></i>
+    </button>
 </body>
 </html>
