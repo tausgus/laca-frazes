@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Lāča frāzes</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Kaspara Lāča frāžu vārdnīca</h1>
+        <i>Dienas frāzes un meklēšana</i>
+    </div>
+    <div class="flex">
+        <div class="daily">
+            <h2>Dienas frāze</h2>
+            <blockquote>"Vegānu atrunas"</blockquote>
+            Aizbildināšanās, atsakoties no kāda uzdevuma, ja atrunām nav labs iemesls.
+        </div>
+        <div class="lookup">
+            <h2>Frāžu meklētājs</h2>
+            <form action="/define"> 
+                <input type="text" name="q" placeholder="Aričenu" class="textbox">
+                <input type="submit" value="Meklēt">
+            </form>
+            <h3 id="word"></h3>
+            <p id="definition"></p>
+        </div>
+    </div>
+</body>
+</html>
