@@ -2,6 +2,7 @@ package dictionary
 
 import (
 	"encoding/json"
+	"log"
 	"os"
 	"slices"
 	"strings"
@@ -23,7 +24,7 @@ var phrases Phrases
 func Define(name string) string {
 	data, err := os.ReadFile("phrases.json")
 	if err != nil {
-		panic(err)
+		log.Fatal("Error while reading phrases file: ", err)
 	}
 
 	json.Unmarshal(data, &phrases)
