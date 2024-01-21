@@ -2,7 +2,6 @@ package dictionary
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"slices"
 	"strings"
@@ -28,10 +27,6 @@ func Define(name string) string {
 	}
 
 	json.Unmarshal(data, &phrases)
-
-	if err != nil {
-		fmt.Println("error:", err)
-	}
 
 	for i := 0; i < len(phrases.Phrases); i++ {
 		if slices.Contains(phrases.Phrases[i].Names, strings.ToLower(name)) {
