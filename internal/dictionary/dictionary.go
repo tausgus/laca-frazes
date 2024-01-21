@@ -35,5 +35,4 @@ func Define(name string) string {
 	}
 
 	return notDefinedMessage
-
 }
