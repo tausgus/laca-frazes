@@ -10,14 +10,12 @@ import (
 )
 
 func defineHandler(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-
 	data := struct {
 		Query      string
 		Definition string
 	}{
-		strings.ToLower(r.Form["q"][0]),
-		dictionary.Define(r.Form["q"][0]),
+		strings.ToLower(r.FormValue("q")),
+		dictionary.Define(r.FormValue("q")),
 	}
 
 	t, _ := template.ParseFiles("web/template/definition.html")
@@ -25,7 +23,6 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
-
 	data := struct {
 		DailyPhrase     string
 		DailyDefinition string
@@ -36,7 +33,6 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 
 	t, _ := template.ParseFiles("web/template/index.html")
 	t.Execute(w, data)
-
 }
 
 func main() {
