@@ -61,6 +61,14 @@ blockquote {
     font-size: larger;
 }
 
+a:link, a:visited {
+    color: #9AC2C9;
+}
+
+a:hover {
+    color: #B9D8C2;
+}
+
 q {
     font-style: italic;
     quotes: "„" "“" "‚" "‘";

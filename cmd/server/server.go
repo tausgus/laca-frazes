@@ -55,7 +55,10 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	var port string = ":" + os.Args[1]
 
-	http.Handle("/style.css", http.FileServer(http.Dir("web/static")))
+	staticServer := http.FileServer(http.Dir("web/static"))
+
+	http.Handle("/style.css", staticServer)
+	http.Handle("/favicon.ico", staticServer)
 
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/define", defineHandler)
