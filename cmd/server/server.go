@@ -13,12 +13,16 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 	var requested string = r.FormValue("q")
 	log.Printf("Got definition request for \"%s\"", requested)
 
+	definition, usage := dictionary.Define(requested)
+
 	data := struct {
 		Query      string
 		Definition string
+		Usage      string
 	}{
 		requested,
-		dictionary.Define(requested),
+		definition,
+		usage,
 	}
 
 	t, err := template.ParseFiles("web/template/definition.html")
