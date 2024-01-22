@@ -7,6 +7,22 @@
         {
             "Names": ["okezen", "okzen", "oukzen"],
             "Definition": "Labi, okei, viss kārtībā. Tiek lietots pēc kādas sarunas tēmas noslēguma, lai pārietu uz citu tēmu." 
+        },
+        {
+            "Names": ["ozianā", "oziannā"],
+            "Definition": "Izcili, lieliski."
+        },
+        {
+            "Names": ["elpošanas pauze"],
+            "Definition": "Starpbrīdis."
+        },
+        {
+            "Names": ["blurkts", "blarkts"],
+            "Definition": "Bams, pēkšņs notikums. Var izmantot pēc negaīdītas lietas."
+        },
+        {
+            "Names": ["banāns"],
+            "Definition": "Tups cilvēks, bez īpašām prasmēm."
         }
     ]
 }
