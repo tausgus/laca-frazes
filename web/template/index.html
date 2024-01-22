@@ -15,17 +15,17 @@
         <i>Dienas frāzes un meklēšana</i>
     </div>
     <div class="flex">
-        <div class="daily">
-            <h2>Dienas frāze</h2>
-            <blockquote>«{{.DailyPhrase}}»</blockquote>
-            {{.DailyDefinition}}
-        </div>
         <div class="lookup">
             <h2>Frāžu meklētājs</h2>
             <form action="/define"> 
                 <input type="text" name="q" placeholder="Aričenu" class="textbox">
                 <input type="submit" value="Meklēt">
             </form>
+        </div>
+        <div class="daily">
+            <h2>Dienas frāze</h2>
+            <blockquote>«{{.DailyPhrase}}»</blockquote>
+            {{.DailyDefinition}}
         </div>
     </div>
 </body>
