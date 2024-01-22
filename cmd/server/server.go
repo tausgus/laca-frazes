@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/tausgus/laca-frazes/internal/dictionary"
 )
@@ -18,7 +17,7 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 		Query      string
 		Definition string
 	}{
-		strings.ToLower(requested),
+		requested,
 		dictionary.Define(requested),
 	}
 
