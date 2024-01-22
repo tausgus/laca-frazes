@@ -61,6 +61,11 @@ blockquote {
     font-size: larger;
 }
 
+q {
+    font-style: italic;
+    quotes: "„" "“" "‚" "‘";
+}
+
 .header {
     text-align: center;
     max-width: 100vw;
