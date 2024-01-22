@@ -23,7 +23,7 @@ body {
     margin-bottom: clamp(5px, 2%, 10px);
 }
 
-.daily, .lookup, .header, .definition {
+.daily, .lookup, .header, .definition, .stats {
     background-color: #3F4045;
     margin: clamp(5px, 5vh, 50px);
     padding: clamp(1.5vh, 10vw, 2vw);
