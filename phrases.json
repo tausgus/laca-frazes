@@ -29,6 +29,11 @@
             "Names": ["banāns"],
             "Definition": "Tups cilvēks, bez īpašām prasmēm.",
             "Usage": "Jebkurš banāns var trāpīt tādā mērķī."
+        },
+        {
+            "Names": ["buratīno pakaļa"],
+            "Definition": "Kaut kas, kas slikti izskatās vai nerada labu iespaidu.",
+            "Usage": "Daži uzzīmē kaut kādu zīmējumu, kas izskatās kā buratīno pakaļa, un grib par to 10!"
         }
     ]
 }
