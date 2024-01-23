@@ -11,18 +11,18 @@ import (
 
 func defineHandler(w http.ResponseWriter, r *http.Request) {
 	var requested string = r.FormValue("q")
-	log.Printf("Got definition request for \"%s\"", requested)
 
-	definition, usage := dictionary.Define(requested)
+	log.Printf("Got definition request for \"%s\"", requested)
+	dictResponse := dictionary.Define(requested)
 
 	data := struct {
 		Query      string
 		Definition string
 		Usage      string
 	}{
-		requested,
-		definition,
-		usage,
+		dictResponse.Names[0],
+		dictResponse.Definition,
+		dictResponse.Usage,
 	}
 
 	t, err := template.ParseFiles("web/template/definition.html")
@@ -33,12 +33,16 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
+	dictRandom := dictionary.Random()
+
 	data := struct {
 		DailyPhrase     string
 		DailyDefinition string
+		PhraseCount     int
 	}{
-		"Daily test",
-		"Daily test definition",
+		dictRandom.Names[0],
+		dictRandom.Definition,
+		dictionary.Stats(),
 	}
 
 	t, err := template.ParseFiles("web/template/index.html")
@@ -51,7 +55,10 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	var port string = ":" + os.Args[1]
 
-	http.Handle("/style.css", http.FileServer(http.Dir("web/static")))
+	staticServer := http.FileServer(http.Dir("web/static"))
+
+	http.Handle("/style.css", staticServer)
+	http.Handle("/favicon.ico", staticServer)
 
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/define", defineHandler)
