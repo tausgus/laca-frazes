@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/tausgus/laca-frazes/internal/dictionary"
 )
@@ -20,7 +21,7 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 		Definition string
 		Usage      string
 	}{
-		dictResponse.Names[0],
+		strings.Join(dictResponse.Names, "; "),
 		dictResponse.Definition,
 		dictResponse.Usage,
 	}
