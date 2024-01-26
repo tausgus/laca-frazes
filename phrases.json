@@ -32,8 +32,13 @@
         },
         {
             "Names": ["buratīno pakaļa"],
-            "Definition": "Kaut kas, kas slikti izskatās vai nerada labu iespaidu.",
+            "Definition": "Izmanto, salīdzinot to ar kaut ko, kas slikti izskatās vai nerada labu iespaidu.",
             "Usage": "Daži uzzīmē kaut kādu zīmējumu, kas izskatās kā buratīno pakaļa, un grib par to 10!"
+        },
+        {
+            "Names": ["no pirksta izzīsts", "izzīsts no pirksta"],
+            "Definition": "Iegūts no apšaubāma avota, vai vienkārši balstās uz nepatiesas informācijas.",
+            "Usage": "Tāds skaitlis ir no pirksta izzīsts, nevis aprēķināts."
         }
     ]
 }
