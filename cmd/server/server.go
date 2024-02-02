@@ -57,9 +57,7 @@ func main() {
 	var port string = ":" + os.Args[1]
 
 	staticServer := http.FileServer(http.Dir("web/static"))
-
-	http.Handle("/style.css", staticServer)
-	http.Handle("/favicon.ico", staticServer)
+	http.Handle("/static", staticServer)
 
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/define", defineHandler)
