@@ -11,14 +11,15 @@ import (
 )
 
 func defineHandler(w http.ResponseWriter, r *http.Request) {
-	var requested string = r.FormValue("q")
+	var requested string = r.FormValue("q") // Get queried word from /define?q= 
 
 	log.Printf("Got definition request for \"%s\"", requested)
-	dictResponse := dictionary.Define(requested)
+	dictResponse := dictionary.Define(requested) // Look the word up, get back a Phrase struct
 
+	// Prepare the template with corresponding struct fields and dictionary result
 	data := struct {
 		Query      string
-		Definition string
+		Definition string 
 		Usage      string
 	}{
 		strings.Join(dictResponse.Names, "; "),
@@ -30,12 +31,15 @@ func defineHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error while parsing definition template: ", err)
 	}
+	// Send the processed template to ResponseWriter
 	t.Execute(w, data)
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
+	// Get random phrase
 	dictRandom := dictionary.Random()
 
+	// Prepare the template 
 	data := struct {
 		DailyPhrase     string
 		DailyDefinition string
@@ -50,10 +54,12 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error while parsing index template: ", err)
 	}
+	// Send the processed template to ResponseWriter
 	t.Execute(w, data)
 }
 
 func main() {
+	// Get port from runtime arguments
 	var port string = ":" + os.Args[1]
 
 	staticServer := http.FileServer(http.Dir("web/static"))
